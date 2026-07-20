@@ -90,7 +90,6 @@ const compact = n => {
   return inr(n);
 };
 const pct  = n => (n>0?"+":"")+n.toFixed(2)+"%";
-const bare = n => (n>0?"+":"")+n.toFixed(1);
 const cls  = n => n>=0 ? "up" : "down";
 
 /* ------------------------------ state ------------------------------ */
@@ -200,12 +199,11 @@ function render(){
       <div class="badge">${r.label.replace(/[^A-Za-z]/g,"").slice(0,2).toUpperCase()}</div>
       <div class="rmain">
         <div class="rname">${r.label}</div>
-        <div class="rsub">₹${compact(r.value)} · ${inr(r.qty)} qty</div>
+        <div class="rsub">${inr(r.qty)} qty · ₹${inr(r.ltp,2)}</div>
       </div>
-      <div class="cols">
-        <span class="${cls(r.day)}">${bare(r.day)}</span>
-        <span class="${cls(r.month)}">${bare(r.month)}</span>
-        <span class="${cls(r.year)}">${bare(r.year)}</span>
+      <div class="rval">
+        <div class="v">₹${compact(r.value)}</div>
+        <div class="p ${cls(r.day)}">${pct(r.day)}</div>
       </div>
     </div>`).join("");
 }
