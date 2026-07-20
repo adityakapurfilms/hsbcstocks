@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HSBC Stocks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Stocks">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/favicon-64.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="ptr"><div id="ptr-spin"></div></div>
+
+<!-- ============================ VALUES ============================ -->
+<section id="list" class="page">
+  <header class="hdr">
+    <div class="hdr-top">
+      <span class="eyebrow">HSBC Portfolio</span>
+      <button id="settings-btn" class="icon-btn" aria-label="Settings">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 9 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 9a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="total" class="total">₹0</div>
+    <div id="daychip" class="chip"></div>
+  </header>
+
+  <div id="stale" class="stale" hidden></div>
+
+  <div class="listhdr">
+    <span id="count">Holdings</span>
+    <span class="colhdr"><span>1D %</span><span>1M %</span><span>1Y %</span></span>
+  </div>
+
+  <div id="rows"></div>
+  <div class="tail"></div>
+</section>
+
+<!-- ============================= STATS ============================= -->
+<section id="detail" class="page detail">
+  <div class="navbar">
+    <button id="back" class="back">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      <span>Holdings</span>
+    </button>
+  </div>
+  <div id="detail-body"></div>
+</section>
+
+<!-- ============================ SETTINGS =========================== -->
+<div id="scrim" hidden></div>
+<div id="sheet" hidden>
+  <div class="sheet-grab"></div>
+  <h2>Settings</h2>
+  <button id="refresh-btn" class="sheet-btn primary">Refresh from Google Sheet</button>
+  <button id="upload-btn" class="sheet-btn">Upload a CSV file</button>
+  <input id="file" type="file" accept=".csv,text/csv" hidden>
+  <p id="status" class="status"></p>
+  <button id="close-sheet" class="sheet-btn ghost">Done</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
